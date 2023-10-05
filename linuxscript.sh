@@ -1,6 +1,6 @@
 
 	chattr -i /etc/passwd
-  chattr -i /etc/passwd
+        chattr -i /etc/passwd
 	chattr -i /etc/profile
 	chattr -i /etc/bash.bashrc
 	chattr -i /etc/login.defs
@@ -21,7 +21,7 @@
 	chattr -i /etc/sysctl.conf
 	chattr -i /etc/apt/sources.list
 
- chown root:root /etc/fstab
+        chown root:root /etc/fstab
 	chmod 644 /etc/fstab
 	chown root:root /etc/group
 	chmod 644 /etc/group
@@ -68,7 +68,7 @@
 	chmod -R g-wx,o-rwx /var/log/
 
 
-  apt install apparmor -y
+  	apt install apparmor -y
 	apt install apparmor-profiles -y
 	apt install apparmor-utils -y
 	apt install ranger -y
@@ -78,11 +78,11 @@
 	echo "Removing nopasswdlogon group"
 	sed -i -e '/nopasswdlogin/d' /etc/group
 
- passwd -l root
+	 passwd -l root
 
- echo "Port 22" > /etc/ssh/sshd_config
-		echo "PermitRootLogin no" >> /etc/ssh/sshd_config
-		echo "Protocol 2" >> /etc/ssh/sshd_config
-		echo "LoginGRaceTime 2m" >> /etc/ssh/sshd_config
+	 echo "Port 22" > /etc/ssh/sshd_config
+	 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+	 echo "Protocol 2" >> /etc/ssh/sshd_config
+	 echo "LoginGRaceTime 2m" >> /etc/ssh/sshd_config
 
-  ufw deny 4444
+         ufw deny 4444
