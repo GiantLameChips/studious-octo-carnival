@@ -80,7 +80,6 @@
 
 	 passwd -l root
 
-	 echo "Port 22" > /etc/ssh/sshd_config
 	 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 	 echo "Protocol 2" >> /etc/ssh/sshd_config
 	 echo "LoginGRaceTime 2m" >> /etc/ssh/sshd_config
