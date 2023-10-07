@@ -11,6 +11,9 @@ apt install tmux -y
 apt install ufw -y
 apt install install libapache2-mod-security2 -y    
 
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
+chmod +x pspy64
+
 a2enmod userdir
 a2enmod headers
 a2enmod rewrite
@@ -32,10 +35,9 @@ echo "Protocol 2" >> /etc/ssh/sshd_config
 
 #metasploit default port
 ufw deny 4444
-ufw allow http
-ufw allow https
-ufw allow apache
-ufw allow ssh 
+
+ufw allow 'Apache Secure'
+ufw allow OpenSSH
 ufw allow ftp
   	
 
