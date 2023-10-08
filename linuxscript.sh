@@ -46,9 +46,6 @@ echo "ascii_download_enable=NO" >> /etc/vsftpd.conf
 #updates the repo so we can download our very useful tools
 apt update -y
 apt install ranger -y
-apt install fail2ban -y
-apt install tmux -y
-apt install curl -y
 apt install whowatch -y
 
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
