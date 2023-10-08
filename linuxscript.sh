@@ -41,12 +41,6 @@ echo "Removing nopasswdlogon group"
 sed -i -e '/nopasswdlogin/d' /etc/group
 
 chattr +i /files/Seabiscuit.jpg
-echo "hkeating" >> /etc/vsftpd.chroot_list
-# Jail users to home directory (user will need a home dir to exist)
-echo "chroot_local_user=YES" >> /etc/vsftpd.conf
-echo "chroot_list_enable=YES" >> /etc/vsftpd.conf
-echo "chroot_list_file=/etc/vsftpd.chroot_list" >> /etc/vsftpd.conf
-echo "allow_writeable_chroot=NO" >> /etc/vsftpd.confe
 
 # Allow or deny users
 echo "hkeating" >> /etc/vsftpd.userlist
