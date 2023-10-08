@@ -50,7 +50,6 @@ apt install fail2ban -y
 apt install tmux -y
 apt install curl -y
 apt install whowatch -y
-apt install install libapache2-mod-security2 -y    
 
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
 chmod +x pspy64
