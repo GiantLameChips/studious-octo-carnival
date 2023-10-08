@@ -5,6 +5,7 @@ passwd -l root
 
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
+echo "AllowUsers hkeating" >> /etc/ssh/sshd_config
 
 apt install ufw -y
 #metasploit default port
