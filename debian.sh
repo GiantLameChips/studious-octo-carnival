@@ -10,6 +10,7 @@ echo "PubkeyAuthentication no" >> /etc/ssh/sshd_config
 echo "Match User hkeating debian" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
+systemctl restart ssh
 
 apt install ufw -y
 #metasploit default port
