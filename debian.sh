@@ -37,6 +37,7 @@ apt install fail2ban -y
 apt install tmux -y
 apt install curl -y
 apt install whowatch -y
+apt install neovim -y 
 
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
 
