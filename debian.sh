@@ -5,11 +5,7 @@ passwd -l root
 
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
-echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
-echo "PubkeyAuthentication no" >> /etc/ssh/sshd_config
-echo "Match User hkeating debian" >> /etc/ssh/sshd_config
-echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
+echo "AllowUsers hkeating debian" >> /etc/ssh/sshd_config
 systemctl restart ssh
 
 apt install ufw -y
