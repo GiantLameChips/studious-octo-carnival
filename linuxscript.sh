@@ -5,16 +5,19 @@ passwd -l root
 
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
-echo "AllowUsers hkeating" >> /etc/ssh/sshd_config
 
 apt install ufw -y
 #metasploit default port
 ufw deny 4444
 
 #sets firewall rules
-ufw allow 'Apache Secure'
+ufw allow 'Apache Secure' #443
 ufw allow OpenSSH
 ufw allow ftp
+ufw allow http
+ufw allow 20 tcp
+ufw allow 990 tcp
+ufw allow 
 ufw enable
 
 
@@ -42,15 +45,30 @@ echo "write_enable=YES" >> /etc/vsftpd.conf
 echo "xferlog_enable=YES" >> /etc/vsftpd.conf
 echo "ascii_upload_enable=NO" >> /etc/vsftpd.conf
 echo "ascii_download_enable=NO" >> /etc/vsftpd.conf
+service vsftpd restart
 
 
 #updates the repo so we can download our very useful tools
 apt update -y
 apt install ranger -y
+apt install fail2ban -y
+apt install tmux -y
+apt install curl -y
 apt install whowatch -y
 
 wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
 chmod +x pspy64
 
-chattr +i /etc/vsftpd.userlist
+for user in $( sed 's/:.*//' /etc/passwd);
+	do
+	  if [[ $( id -u $user) -ge 999 && "$user" != "nobody" ]]
+	  then
+		(echo "RubiksCubes1!"; echo "RubiksCubes1!") |  passwd "$user"
+	  fi
+done
 
+pwck
+
+chattr +i /etc/vsftpd.userlist
+chattr +i /etc/vsftpd.conf
+chattr +i /etc/ssh/sshd_config
