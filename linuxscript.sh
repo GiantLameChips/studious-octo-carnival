@@ -5,6 +5,7 @@ passwd -l root
 
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 echo "Protocol 2" >> /etc/ssh/sshd_config
+echo "AllowUsers hkeating ubuntu"
 
 apt install ufw -y
 #metasploit default port
@@ -29,6 +30,10 @@ sed -i -e '/nopasswdlogin/d' /etc/group
 
 chmod 644 /etc/passwd
 
+cp /files/Seabiscuit.jpg ~
+cp /files/Seabiscuit.jpg /bin
+cp /files/Seabiscuit.jpg /media
+cp /files/Seabiscuit.jpg /var
 chattr +i /files/Seabiscuit.jpg
 
 #allow only the scoring user
