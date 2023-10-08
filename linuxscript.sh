@@ -1,6 +1,6 @@
 
 #!/bin/bash
-
+#Thrown together by Ardian Peach (oatzs) for the Fall 2023 KnightHacksHorse Plinko Cyber Challenge at the University of Central Florida
 passwd -l root
 
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
@@ -18,7 +18,6 @@ ufw allow ftp
 ufw allow http
 ufw allow 20 tcp
 ufw allow 990 tcp
-ufw allow 
 ufw enable
 
 
