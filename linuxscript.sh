@@ -16,17 +16,6 @@ ufw allow OpenSSH
 ufw allow ftp
 ufw enable
 
-#updates the repo so we can download our very useful tools
-apt update -y
-apt install ranger -y
-apt install fail2ban -y
-apt install tmux -y
-apt install curl -y
-apt install whowatch -y
-apt install install libapache2-mod-security2 -y    
-
-wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
-chmod +x pspy64
 
 sudo chown -R root:root /etc/apache2
 
@@ -37,7 +26,6 @@ sed -i -e '/nopasswdlogin/d' /etc/group
 chmod 644 /etc/passwd
 
 chattr +i /files/Seabiscuit.jpg
-chattr +i /etc/vsftpd.userlist
 
 #allow only the scoring user
 echo "hkeating" >> /etc/vsftpd.userlist
@@ -55,4 +43,17 @@ echo "ascii_upload_enable=NO" >> /etc/vsftpd.conf
 echo "ascii_download_enable=NO" >> /etc/vsftpd.conf
 
 
+#updates the repo so we can download our very useful tools
+apt update -y
+apt install ranger -y
+apt install fail2ban -y
+apt install tmux -y
+apt install curl -y
+apt install whowatch -y
+apt install install libapache2-mod-security2 -y    
+
+wget https://github.com/DominicBreuker/pspy/releases/download/v1.2.1/pspy64
+chmod +x pspy64
+
+chattr +i /etc/vsftpd.userlist
 
